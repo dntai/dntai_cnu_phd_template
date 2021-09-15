@@ -1,0 +1,59 @@
+%---------------------------------------------
+% Packages
+%---------------------------------------------
+
+%Table Generator
+\RequirePackage[table,xcdraw]{xcolor}
+\RequirePackage{multirow}
+\RequirePackage{tabularx}
+\RequirePackage{adjustbox}
+
+\RequirePackage[oldcommands, ruled,linesnumbered]{algorithm2e}% typesetting of algorithms
+\RequirePackage{subcaption}% subfigure
+\RequirePackage[normalem]{ulem} % use normalem to protect \emph
+
+\RequirePackage{lipsum} % Dummytext
+\RequirePackage{xargs} % Use more than one optional parameter in a new commands
+% \RequirePackage[ruled,vlined]{algorithm2e}
+
+% Maths
+\RequirePackage{amsfonts} %\mathbb, \mathbf
+\RequirePackage{amsmath}
+
+\RequirePackage{amsmath,amssymb,amsfonts, amsfonts, amsthm}
+\RequirePackage{mathrsfs}
+
+%---------------------------------------------
+% Equation Symbol
+%---------------------------------------------
+\RequirePackage{stackengine}
+\makeatletter
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\def\delequal{\mathrel{\ensurestackMath{\stackon[1pt]{=}{\scriptstyle\Delta}}}}
+\def\deltaeq{\mathrel{\ensurestackMath{\stackon[1pt]{=}{\scriptstyle\Delta}}}}
+
+% equal define in equation
+% https://tex.stackexchange.com/questions/163829/delta-equal-to-symbol/163834
+\def\delequal{\mathrel{\ensurestackMath{\stackon[1pt]{=}{\scriptstyle\Delta}}}}
+\makeatother
+
+\RequirePackage{tikz}
+\RequirePackage{calc}
+\makeatletter
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\def\scalecheck{\resizebox{\widthof{\checkmark}*\ratio{\widthof{x}}{\widthof{\normalsize x}}}{!}{\checkmark}}
+\makeatother
+%---------------------------------------------
+
+%---------------------------------------------
+% Notes
+%---------------------------------------------
+\makeatletter
+\DeclareRobustCommand\colorwave[1][blue]{\bgroup\markoverwith{\lower3.5\p@\hbox{\sixly\textcolor{#1}{\char58}}}\ULon}
+\font\sixly=lasy6 % does not re-load if already loaded, so no memory problem.
+
+\DeclareRobustCommand\hlbox[1][yellow]{\bgroup\markoverwith{\hbox{\textcolor{#1}{\rule[-.5ex]{2pt}{2.5ex}}}}\ULon}
+\makeatother
+%---------------------------------------------

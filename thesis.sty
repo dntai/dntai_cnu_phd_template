@@ -1,0 +1,114 @@
+% Define Latex Package
+\RequirePackage{import}
+\RequirePackage{float} % Allows [H] in \begin{figure}
+\RequirePackage{soul} % highlight with hl
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\RequirePackage{prlab}
+\usepackage{rotating}
+
+% Version
+\def\@cpversion{}
+% \newcommand{\cpversion}[1]{\gdef\@cpversion{#1}}
+
+% Declare graphics path
+\graphicspath{{./acm/}{./figures/}{./ieee/}{./iaccess/}{./images/update/}{./images/}} 
+
+% proofreading
+% \newcommand{\reviseA}[1]{\hlbox[cyan]{#1}}
+% \newcommand{\reviseB}[1]{\hlbox[green]{#1}}
+% \newcommand{\reviseC}[1]{\hlbox[yellow]{#1}}
+% \newcommand{\reviseD}[1]{\hlbox[green]{#1}}
+% \newcommand{\verify}[1]{\hlbox[cyan]{#1}}
+
+\newcommand{\reviseA}[1]{#1}
+\newcommand{\reviseB}[1]{#1}
+\newcommand{\reviseC}[1]{#1}
+\newcommand{\verify}[1]{#1}
+\newcommand{\reviseD}[1]{#1}
+
+\newcommand{\cphighlight}{
+    \renewcommand{\reviseA}[1]{\hlbox[cyan]{##1}}
+    \renewcommand{\reviseB}[1]{\hlbox[green]{##1}}
+    \renewcommand{\reviseC}[1]{\hlbox[yellow]{##1}}
+    \renewcommand{\reviseD}[1]{\hlbox[green]{##1}}
+    \renewcommand{\verify}[1]{\hlbox[cyan]{##1}}    
+}
+
+
+%Korean Language
+\RequirePackage{CJKutf8}
+\RequirePackage{kotex}
+
+% thesis Information
+\title{A Survey on Image Denoise}
+\titlekr{이미지 노이즈 제거에 대한 설문조사}
+
+% author
+\author{NGUYEN, Van-Tai}
+\authorkr{응우옌 반 타이}
+
+% advisor
+\advisorName{KIM, Yong-B}
+\advisorNameKr{김용비}
+
+% committee chair, members
+\committeeChair{KIM, Yong-B}
+\committeeChairKr{김용비}
+\committeeMemberI{KIM, Yong-B}
+\committeeMemberIKr{김용비}
+\committeeMemberII{KIM, Yong-B}
+\committeeMemberIIKr{김용비}
+\committeeMemberIII{KIM, Yong-B}
+\committeeMemberIIIKr{김용비}
+
+% degree: name, major
+\degreeAward{Doctoral Dissertation}
+\degreeName{Doctor of Engineering}
+\degreeMajor{Artificial Intelligence Convergence}
+
+% department + school + university
+\department{Department of Artificial Intelligence Convergence}
+\departmentkr{인공 지능 융합학과}
+
+\school{Graduate School}
+\schoolkr{대학원}
+
+\university{Chonnam National University}
+\universitykr{전남대학교}
+
+% date time
+\graduateMonth{August}
+\graduateYear{2021}
+
+\makeatletter
+
+\newcommand{\cpversion}[1]{
+    \gdef\@cpversion{#1}
+    \ifx\@cpversion\@empty
+        \gdef\@cpabstract{contents/abstract}
+        \gdef\@cpabstractkr{contents/abstract_kr}
+        \gdef\@cpkeywords{contents/keywords}
+        \gdef\@cpacknowledgement{contents/acknowledgement}
+        \gdef\@cpcontent{contents/content} 
+    \else
+        \gdef\@cpabstract{contents/\@cpversion/abstract}
+        \gdef\@cpabstractkr{contents/\@cpversion/abstract_kr}
+        \gdef\@cpkeywords{contents/\@cpversion/keywords}
+        \gdef\@cpacknowledgement{contents/\@cpversion/acknowledgement}
+        \gdef\@cpcontent{contents/\@cpversion/content}
+    \fi    
+}
+\cpversion{\@cpversion}
+        
+\DeclareRobustCommand{\cpabstract}{\IfFileExists{\@cpabstract.tex}{\input{\@cpabstract}}{\@cpabstract}}
+
+\DeclareRobustCommand{\cpabstractkr}{\IfFileExists{\@cpabstractkr.tex}{\input{\@cpabstractkr}}{\@cpabstractkr}}
+
+\DeclareRobustCommand{\cpkeywords}{\IfFileExists{\@cpkeywords.tex}{\input{\@cpkeywords}}{\@cpkeywords}}
+
+\DeclareRobustCommand{\cpacknowledgement}{\IfFileExists{\@cpacknowledgement.tex}{\input{\@cpacknowledgement}}{\@cpacknowledgement}}
+
+\DeclareRobustCommand{\cpcontent}{\IfFileExists{\@cpcontent.tex}{\input{\@cpcontent}}{\@cpcontent}}
+
+\makeatother
